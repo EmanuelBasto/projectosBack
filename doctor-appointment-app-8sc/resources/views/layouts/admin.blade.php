@@ -17,15 +17,21 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
-        
-    @include('layouts.includes.admin.navigation') <!-- conectar con otras paginas -->
-    @include('layouts.includes.admin.sidebar')
+    <body class="font-sans antialiased bg-gray-50">
 
-        <div class="p-4 ">
-            <div class="text">hola mundo</div>
-            
+        @include('layouts.includes.admin.navigation')
+        @include('layouts.includes.admin.sidebar')
+
+        
+
+        <div class="p-4 sm:ml-64">
+            <!--Añadir margen superior-->
+            <div class="mt-14">
+                {{$slot}}
+            </div>
         </div>
+
+
 
         @stack('modals')
 

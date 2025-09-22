@@ -1,3 +1,3 @@
 <x-admin-layaout>
-    hola iris
+    Hola Maestro Gaxiola
 </x-admin-layaout>

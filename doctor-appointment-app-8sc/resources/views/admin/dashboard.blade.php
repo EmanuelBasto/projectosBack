@@ -1,3 +1,3 @@
-<x-admin-layaout>
+<x-admin-layout>
     Hola Maestro Gaxiola
-</x-admin-layaout>
+</x-admin-layout>

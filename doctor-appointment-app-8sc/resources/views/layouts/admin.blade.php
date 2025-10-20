@@ -15,6 +15,8 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Styles -->
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css">
+
         @livewireStyles
     </head>
     <body class="font-sans antialiased bg-gray-50">
@@ -22,7 +24,6 @@
         @include('layouts.includes.admin.navigation')
         @include('layouts.includes.admin.sidebar')
 
-        
 
         <div class="p-4 sm:ml-64">
             <!--Añadir margen superior-->
@@ -30,8 +31,6 @@
                 {{$slot}}
             </div>
         </div>
-
-
 
         @stack('modals')
 

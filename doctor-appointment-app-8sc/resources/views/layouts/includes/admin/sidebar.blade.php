@@ -14,7 +14,7 @@
         ],
         [
             'name' => 'Dashboard2',
-            'icon' => 'fa-solid fa-chart-line',
+            'icon' => 'fa-solid fa-gauge',
             'href' => '#',
             'active' => request()->routeIs('admin.dashboard2'),
             'submenu' => [

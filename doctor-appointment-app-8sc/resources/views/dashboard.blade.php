@@ -1,4 +1,14 @@
-<<--1<x-admin-layout>
+{{--  <x-app-layout :breadcrumbs= "[
+    [
+    'name' => 'ITMérida',
+    'href' => route('admin.dashboard'),
+    ],
+    [
+    'name' => 'DSC',
+    ''href' => route('admin.dashboard'),
+    ]
+    ['name' => '8']
+    ]">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}

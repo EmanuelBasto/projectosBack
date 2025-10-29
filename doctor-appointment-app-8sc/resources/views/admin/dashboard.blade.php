@@ -11,5 +11,5 @@
         'name' => 'H8'
     ],
 ]">
-    Hola gaxiola
+    Hola  maestro gaxiola
 </x-admin-layout>

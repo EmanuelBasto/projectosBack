@@ -41,6 +41,10 @@
             {{--Incluir breadcrumb--}}
             @include('Layouts.includes.admin.breadcrumb')
             
+            {{--Slot de acciones (botones en la parte superior derecha)--}}
+            <div class="flex items-center">
+                {{ $actions ?? '' }}
+            </div>
         </div>
         {{$slot}}
         </div>

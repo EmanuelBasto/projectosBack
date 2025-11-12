@@ -66,6 +66,30 @@
             
         @endif
            
-
+       <script>
+            //buscar todos los elementos con la clase especifica
+            forms = document.querySelectorAll('.delete-form');
+            forms.forEach(form => {
+                //se pone al pendiente de cualquier accion submit
+                form.addEventListener('submit', function(e) {
+                    //evita que se envie el formulario
+                    e.preventDefault(); // Prevenir el envío del formulario
+                    Swal.fire({
+                        title: '¿Estás seguro?',
+                        text: "¡No podrás revertir esto!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Sí, eliminarlo',
+                        cancelButtonText: 'Cancelar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            form.submit(); // Enviar el formulario si se confirma
+                        }
+                    });
+                });
+            });
+        </script>
     </body>
 </html>

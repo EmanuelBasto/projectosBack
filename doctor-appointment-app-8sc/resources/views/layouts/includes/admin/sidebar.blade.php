@@ -18,6 +18,13 @@
             'active' => request()->routeIs('admin.roles.*'),
 
         ],
+        [
+            'name' => 'Usuarios',
+            'icon' => 'fa-solid fa-user',
+            'href' => route('admin.users.index'),
+            'active' => request()->routeIs('admin.users.*'),
+        ],
+
     ];
 @endphp
 

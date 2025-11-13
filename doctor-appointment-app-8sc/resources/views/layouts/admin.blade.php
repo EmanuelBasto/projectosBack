@@ -84,7 +84,7 @@
                         confirmButtonText: 'Sí, eliminarlo',
                         cancelButtonText: 'Cancelar'
                     }).then((result) => {
-                        if (result.isConfirmed) {
+                          (result.isConfirmed) {
                             form.submit(); // Enviar el formulario si se confirma
                         }
                     });

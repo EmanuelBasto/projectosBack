@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\PermissionRegistrar;
 
 class RoleController extends Controller
 {
@@ -127,7 +129,7 @@ class RoleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Role $role)
+public function destroy(Role $role)
     {
         if($role->id <=4){
             //Variable de un solo uso para alerta
@@ -141,9 +143,21 @@ class RoleController extends Controller
         return redirect()->route('admin.roles.index');
         }
 
-        //Borrar el rol
-        $role->delete();
+        // Obtener el ID del rol antes de eliminar
+        $roleId = $role->id;
+        
+        // Limpiar las relaciones antes de eliminar el rol
+        // Esto evita el error con la relación polimórfica users()
+        // Usamos DB directamente para evitar problemas con la resolución del modelo
+        DB::table('model_has_roles')->where('role_id', $roleId)->delete();
+        DB::table('role_has_permissions')->where('role_id', $roleId)->delete();
 
+        // Borrar el rol directamente desde la base de datos
+        // Esto evita que Laravel intente cargar las relaciones al eliminar
+        DB::table('roles')->where('id', $roleId)->delete();
+
+        // Limpiar la caché de permisos de Spatie
+        app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
          //Variable de un solo uso para alerta
         session()->flash('swal',

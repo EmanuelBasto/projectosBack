@@ -74,17 +74,21 @@
                 form.addEventListener('submit', function(e) {
                     //evita que se envie el formulario
                     e.preventDefault(); // Prevenir el envío del formulario
+                    
+                    // Obtener el nombre del rol si está disponible
+                    const roleName = form.getAttribute('data-role-name') || 'este elemento';
+                    
                     Swal.fire({
                         title: '¿Estás seguro?',
-                        text: "¡No podrás revertir esto!",
+                        text: `¿Deseas eliminar el rol "${roleName}"? ¡No podrás revertir estos cambios!`,
                         icon: 'warning',
                         showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Sí, eliminarlo',
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#3085d6',
+                        confirmButtonText: 'Eliminar',
                         cancelButtonText: 'Cancelar'
                     }).then((result) => {
-                          (result.isConfirmed) {
+                        if (result.isConfirmed) {
                             form.submit(); // Enviar el formulario si se confirma
                         }
                     });
